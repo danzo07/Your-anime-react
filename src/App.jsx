@@ -1,15 +1,22 @@
 import { BrowserRouter } from "react-router-dom";
+import { CardContextProvider } from "./CardContext";
+import NavBar from "./components/NavBar";
+
 import Pages from "./pages/Pages";
 import { Body } from "./style.styled";
 
 
+
 function App() {
   return (
-    <BrowserRouter basename="/">
-      <Body>
-        <Pages/>
-      </Body>
-    </BrowserRouter>
+    <CardContextProvider>
+      <BrowserRouter basename="/">
+        <Body>
+          <NavBar/>
+          <Pages />
+        </Body>
+      </BrowserRouter>
+    </CardContextProvider>
   );
 }
 
