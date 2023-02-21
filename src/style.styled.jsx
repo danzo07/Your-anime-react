@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const backgroundColor = "#373747";
-const SecondaryColor = "#252837";
+const backgroundColor = "#0E0E0E";
+const SecondaryColor = "#1C1C1C";
 const TextWhite = "#FFFFFF";
-const TextGrey = "#CDCDCD";
-const TextPurple = "#A166FF";
+const TextGrey = "#a9a9a9";
+const TextPurple = "#824ED5";
+
 const Flex = (flexdirection, justifycontent, alignitems) => {
   return `
     display: flex;
@@ -33,9 +34,8 @@ export const Nav__Bar = styled.div`
   ${Flex("row", "center", "center")}
 
   .main__div {
-    width: 70%;
+    width: 1400px;
     ${Flex("row", "space-between", "center")}
-
   }
 `;
 export const Favoritelink = styled(Link)`
@@ -43,9 +43,9 @@ export const Favoritelink = styled(Link)`
   background-color: ${TextPurple};
   ${Flex("row", "center", "center")}
   gap: 5px;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   border-radius: 2rem;
-  svg{
+  svg {
     color: white;
     width: 25px;
     height: 25px;
@@ -70,10 +70,13 @@ export const Homelink = styled(Link)`
 export const PopularBox = styled.div`
   color: ${TextWhite};
   padding: 4rem 0rem;
-  margin: auto;
-  width: 70%;
+  margin: 0 auto;
+  width: 1400px;
   h1 {
     margin-bottom: 1rem;
+  }
+  .splide__slide {
+    position: relative;
   }
   .splide__arrow {
     background: ${TextPurple};
@@ -92,12 +95,29 @@ export const PopularBox = styled.div`
 export const Box = styled.div`
   background-color: ${SecondaryColor};
   width: 100%;
-  height: 100%;
+  height: 100%; 
   display: grid;
-  grid-template-rows: 400px 1fr;
+  grid-template-rows: 400px 100px;
   border-radius: 2rem;
 
   div {
+    position: relative;
+    overflow: hidden;
+    svg {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      width: 50px;
+      height: 50px;
+      color: ${TextWhite};
+      cursor: pointer;
+      border-radius: 1rem;
+      background-color: ${TextPurple};
+      padding: 0.5rem;
+      z-index: 50;
+      box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.4);
+      transition: 300ms all ease-in;
+    }
     img {
       width: 100%;
       height: 100%;
@@ -105,19 +125,23 @@ export const Box = styled.div`
       border-top-right-radius: 2rem;
     }
   }
-
-  div {
-    ${Flex("column", "center", "center")}
+`;
+export const Cardlink = styled(Link)`
+  ${Flex("column", "center", "center")}
+  p {
+    color: ${TextWhite};
+    font-size: 0.9rem;
+    text-align: center;
+    font-weight: 500;
+    padding: 1rem;
+    transition: 300ms all ease-in;
+  }
+  &:hover {
     p {
-      color: ${TextWhite};
-      font-size: 0.9rem;
-      text-align: center;
-      font-weight: 500;
-      padding: 1rem;
+      color: ${TextPurple};
     }
   }
 `;
-
 export const AnimeInfo = styled.div`
   ${Flex("column", "center", "center")}
 
@@ -127,7 +151,7 @@ export const AnimeInfo = styled.div`
       "img info"
       "des des";
     grid-template-columns: 300px 1fr;
-    margin: 4rem;
+    margin: 4rem 0rem;
     gap: 2rem;
     width: 70%;
     .anime__image {
@@ -162,4 +186,17 @@ export const AnimeInfo = styled.div`
       }
     }
   }
+`;
+
+export const FavoriteBox = styled.div`
+  width: 1400px;
+  margin: 0rem auto;
+  padding: 4rem 0;
+`;
+
+export const GirdLayout = styled.div`
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 20px;
 `;

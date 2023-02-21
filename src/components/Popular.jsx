@@ -1,17 +1,13 @@
 import React from "react";
-import { useEffect, useContext } from "react";
-import { PopularBox, Box } from "../style.styled";
+import {useContext } from "react";
+import { PopularBox } from "../style.styled";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/css";
 import { CardContext } from "../CardContext";
-import { Link } from "react-router-dom";
+import CardDetails from "./CardDetails";
 
 function Popular() {
-  const { popular, getPopular } = useContext(CardContext);
-
-  useEffect(() => {
-    getPopular();
-  }, []);
+  const { popular, addFavorite, removeFavorite } = useContext(CardContext);
 
   return (
     <PopularBox>
@@ -19,7 +15,7 @@ function Popular() {
       <Splide
         options={{
           perPage: 4,
-          gap: ".7rem",
+          gap: ".9rem",
           arrows: true,
           pagination: false,
           drag: "free",
@@ -28,19 +24,11 @@ function Popular() {
         {popular.map((anime) => {
           return (
             <SplideSlide key={anime.animeId}>
-              <Link
-                to={"/anime-details/" + anime.animeId}
-                style={{ textDecoration: "none" }}
-              >
-                <Box>
-                  <div>
-                    <img src={anime.animeImg} alt="" />
-                  </div>
-                  <div>
-                    <p>{anime.animeTitle}</p>
-                  </div>
-                </Box>
-              </Link>
+              <CardDetails
+                anime={anime}
+                addFavorite={addFavorite}
+                removeFavorite={removeFavorite}
+              />
             </SplideSlide>
           );
         })}

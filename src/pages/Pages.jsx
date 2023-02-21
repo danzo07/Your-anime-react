@@ -1,11 +1,8 @@
 import React from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
+import Favorites from "../components/Favorites";
 import AnimeDetails from "./AnimeDetails";
-import Favorites from "./Favorites";
 import Home from "./Home";
-
-
-
 
 function Pages() {
   return (
