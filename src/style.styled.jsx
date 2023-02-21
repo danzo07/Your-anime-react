@@ -45,6 +45,7 @@ export const Favoritelink = styled(Link)`
   gap: 5px;
   padding: 0.5rem 1rem;
   border-radius: 2rem;
+  transition: 300ms all ease-in;
   svg {
     color: white;
     width: 25px;
@@ -52,6 +53,16 @@ export const Favoritelink = styled(Link)`
   }
   p {
     color: ${TextWhite};
+    font-weight: 500;
+  }
+  &:hover {
+    background-color: ${TextWhite};
+    svg {
+      color: ${TextPurple};
+    }
+    p {
+      color: ${TextPurple};
+    }
   }
 `;
 export const Homelink = styled(Link)`
@@ -130,7 +141,7 @@ export const Cardlink = styled(Link)`
   ${Flex("column", "center", "center")}
   p {
     color: ${TextWhite};
-    font-size: 0.9rem;
+    font-size: 1rem;
     text-align: center;
     font-weight: 500;
     padding: 1rem;
@@ -192,6 +203,39 @@ export const FavoriteBox = styled.div`
   width: 1400px;
   margin: 0rem auto;
   padding: 4rem 0;
+  .fav-box-1 {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+
+    .download-fav {
+      cursor: pointer;
+      background-color: ${TextPurple};
+      ${Flex("row", "center", "center")}
+      gap: 5px;
+      padding: 0.5rem 1rem;
+      border-radius: 2rem;
+      transition: 300ms all ease-in;
+      svg {
+        color: white;
+        width: 25px;
+        height: 25px;
+      }
+      p {
+        color: ${TextWhite};
+        font-weight: 500;
+      }
+      &:hover {
+        background-color: ${TextWhite};
+        svg {
+          color: ${TextPurple};
+        }
+        p {
+          color: ${TextPurple};
+        }
+      }
+    }
+  }
 `;
 
 export const GirdLayout = styled.div`
